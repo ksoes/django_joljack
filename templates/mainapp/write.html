@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="content1">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm">
+                <div class="text-center">
+                    <h2 style="color: rgb(50,179,50);">평가 및 추가의견 입력란</h2>
+                    <h4 style="color: rgb(50,179,50);">*개선점을 입력해주시면 감사하겠습니다*</h4>
+                    <br>
+                </div>
+                <form method="POST" action="{% url 'mainapp:evaluate' %}">
+                    {% csrf_token %}
+                    <!-- 오류표시 Start -->
+                    {% if form_eval.errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {% for field in form_eval %}
+                        {% if field.errors %}
+                        <div>
+                            <strong>{{ field.label }}</strong>
+                            {{ field.errors }}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    <tr>
+                        <th>
+                            <label for="id_option_0">평가:</label>
+                        </th>
+                        <td>
+                            <ul id="id_option">
+                                <li>
+                                    <label for="id_option_0">
+                                        <input type="radio" name="option" value="G" required id="id_option_0" checked>Good
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="id_option_1">
+                                        <input type="radio" name="option" value="B" required id="id_option_1">Bad
+                                    </label>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            평가 작성란:<br><label for="id_eval_text"></label>
+                        </th>
+                        <td>
+                            <textarea name="eval_text" cols="40" rows="10" id="id_eval_text"></textarea>
+                        </td>
+                    </tr>
+                    <input type="submit" value="입력하기" style="float: right;"/> <br><br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>신뢰도 측정 대상 외의 기사입니다. 다른 기사로 다시 시도하세요</h1>
+<br>
+<button type="button" onclick=" location.href='{% url 'mainapp:index' %}' ">첫화면으로 돌아가기</button>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# PyCharm
+.idea/
+
+# db 및 key파일
+my_settings.py
+
+# mysql 저장 테스트
+test_mysql_input.ipynb
+.ipynb_checkpoints
+# mecab
+etc_file/download/
+
+# migrations
+mainapp/migrations

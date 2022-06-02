@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <title>진실의 돋보기</title>
+        <link rel="stylesheet" href="{% static '/css/style.css' %}">
+        <script defer src="{% static 'javascript/main.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    </head>
+    <body>
+        <div id="header">
+            <button type="button" onclick=" location.href='{% url 'mainapp:index' %}' " style="background-color: white; border-radius: 10%; border: 0; outline: 0;">
+                <span id=title_text>
+                    <h1><b>진실의 돋보기</b><img src="{% static 'images/glass.png' %}" width="70px" height="70px"></h1>
+                </span>
+            </button>
+        </div>
+
+        <div class="choose_way">
+            <div id="manual">
+                <button type="button" onclick=" location.href='{% url 'mainapp:information' %}' " style="background-color: white; border-radius: 10%; border: 0; outline: 0;">
+                    <img src="{% static 'images/manual.png' %}" width="80px" height="80px">
+                    <br><b>이용 안내</b>
+                </button>
+            </div>
+            <div id="add_file">
+                <button type="button" onclick=" location.href='{% url 'mainapp:result' %}' " style="background-color: white; border-radius: 10%; border: 0; outline: 0;">
+                    <img  src="{% static 'images/addfile.png' %}" width="80px" height="80px">
+                    <br><b>파일 첨부</b>
+                </button>
+            </div>
+        </div>
+
+        <h3><hr id="hr1"></h3>
+
+    </body>
+</html>
+{% block content %}
+
+{% endblock %}
